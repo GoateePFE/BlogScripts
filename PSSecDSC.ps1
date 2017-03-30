@@ -71,7 +71,9 @@ Param(
             Ensure    = 'Present'
         }
 
-        # Remove this setting to descrease log volume
+        # Enable this setting to log start / stop events. Not usually recommended, as it causes
+        # a significant impact on log volume
+        <#
         Registry ScriptBlockInvocationLogging
         {
             Key       = 'HKLM:\Software\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging'
@@ -80,6 +82,7 @@ Param(
             ValueType = 'String'
             Ensure    = 'Present'
         }
+        #>
 
         Script PowerShellLogSize
         {
